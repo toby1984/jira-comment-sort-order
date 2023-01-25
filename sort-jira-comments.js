@@ -8,22 +8,19 @@
 // @grant        none
 // ==/UserScript==
 
+
 setTimeout( function() {
   'use strict';
   
-  var success = false;
   const btn = document.getElementById("sort-button");
   if ( btn ) {
     const order = btn.getAttribute("data-order");
     if ( order ) {
-      success = true;
       if ( order !== 'desc' ) {
         btn.click();
       }         
+    } else {
+      alert("GreaseMonkey script to fix comment sort order failed to determine sort order");       
     }
-  }
-    
-  if ( ! success ) {
-    alert("GreaseMonkey script to fix comment sort order failed");      
   }
 }, 1000 );
